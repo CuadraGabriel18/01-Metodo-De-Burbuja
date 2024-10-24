@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ordenamiento Burbuja</title>
+</head>
+<body>
+    <h1>Ordenamiento Burbuja</h1>
+    
+    <label for="inputArray">Ingrese valores separados por comas:</label>
+    <input type="text" id="inputArray">
+    <button onclick="sortArray()">Ordenar</button>
+    
+    <p id="outputArray"></p>
+
+    <script>
+        function bubbleSort(arr) {
+            const n = arr.length;
+
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    }
+                }
+            }
+        }
+
+        function sortArray() {
+            const input = document.getElementById("inputArray").value;
+            const arr = input.split(",").map(Number);
+            
+            bubbleSort(arr);
+
+            const output = document.getElementById("outputArray");
+            output.textContent = "Arreglo ordenado: " + arr.join(", ");
+        }
+    </script>
+</body>
+</html>
